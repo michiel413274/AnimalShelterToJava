@@ -24,7 +24,7 @@ public abstract class Animal {
     {
         this.Name = name;
         this.Gender = gender;
-        //
+        ///
     }
 
     public Boolean Reserve(String reservedby)
