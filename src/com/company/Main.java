@@ -7,6 +7,8 @@ import java.util.Scanner;
 public class Main {
     static Scanner sc = new Scanner(System.in);
     static Reservation reservation = new Reservation();
+    static Webshop webshop = new Webshop();
+    static TestData data = new TestData();
 
     public static void main(String[] args)
     {
@@ -72,6 +74,11 @@ public class Main {
 
     private static void CreateAReservation()
     {
+        println("Animal list");
+        for (Animal animal : reservation.GetAnimalList())
+        {
+            println(animal.toString());
+        }
         System.out.println("Choose an animal by name");
         String Name = sc.next();
         for (Animal animal : reservation.GetAnimalList())
@@ -109,7 +116,7 @@ public class Main {
 
     private static void MakeAChoice()
     {
-        println("what do you want to do add an animal(type 1), make a reservation(type 2) or nothing(press anything else)");
+        println("what do you want to do add an animal(type 1), make a reservation(type 2), buy a product(type 3) or nothing(press anything else)");
         int Choice = sc.nextInt();
 
         if(Choice == 1)
@@ -118,16 +125,28 @@ public class Main {
         }
         if(Choice == 2)
         {
-            println("Animal list");
-            for (Animal animal : reservation.GetAnimalList())
-            {
-                println(animal.ToString());
-            }
             CreateAReservation();
+        }
+        if(Choice == 3)
+        {
+            BuyAnItem();
         }
         else
         {
             println("This program wil be stopped");
         }
+    }
+
+    private static void BuyAnItem()
+    {
+        println("Products that can be sold");
+        for(ISellable product : webshop.GetProducts())
+        {
+            println(product.toString());
+        }
+        println("Type the name of the product");
+        String Name = sc.next();
+        webshop.BuyAnItem(Name);
+        MakeAChoice();
     }
 }

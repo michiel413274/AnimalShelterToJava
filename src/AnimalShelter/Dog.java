@@ -1,6 +1,5 @@
 package AnimalShelter;
 
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -9,6 +8,7 @@ import java.util.Date;
 
 public class Dog extends Animal{
     private Date LastWalk;
+    private double Price;
 
     public Date GetLastWalk() {
         return LastWalk;
@@ -29,11 +29,31 @@ public class Dog extends Animal{
     }
 
     @Override
-    public String ToString()
+    public String toString()
     {
         String pattern = "MM/dd/yyyy";
         SimpleDateFormat df = new SimpleDateFormat(pattern);
 
-        return super.ToString() + ", last walk: " + df.format(LastWalk);
+        return "Dog, " + super.toString() + ", last walk: " + df.format(LastWalk) + ", The price is: " + Price;
+    }
+
+    @Override
+    public void SetPrice() {
+        Price = 500 - DogCount() * 50;
+        if(Price < 50)
+        {
+            Price = 50;
+        }
+    }
+
+    @Override
+    public Double GetPrice() {
+        return Price;
+    }
+
+    public int DogCount()
+    {
+        Webshop _webshop = new Webshop();
+        return _webshop.CountTheDogs();
     }
 }

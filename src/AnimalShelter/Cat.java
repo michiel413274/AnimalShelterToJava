@@ -2,6 +2,7 @@ package AnimalShelter;
 
 public class Cat extends Animal{
     private String BadHabits;
+    private Double Price;
     public String GetBadhabits()
     {
         return this.BadHabits;
@@ -10,10 +11,25 @@ public class Cat extends Animal{
     {
         super(name, gender);
         BadHabits = badhabits;
+        SetPrice();
     }
     @Override
-    public String ToString()
+    public String toString()
     {
-        return super.ToString() + ", bad habits: " + BadHabits.toLowerCase();
+        return "Cat, " + super.toString() + ", bad habits: " + BadHabits.toLowerCase() + " The price is: " + Price;
+    }
+
+    @Override
+    public void SetPrice() {
+        Price = 350 - (double)BadHabits.length() * 20;
+        if(Price < 35)
+        {
+            Price = (double)35;
+        }
+    }
+
+    @Override
+    public Double GetPrice() {
+        return Price;
     }
 }

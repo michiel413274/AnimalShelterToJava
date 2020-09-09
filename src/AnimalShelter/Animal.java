@@ -2,7 +2,7 @@ package AnimalShelter;
 
 import java.time.LocalDateTime;
 
-public abstract class Animal {
+public abstract class Animal implements ISellable {
     private String Name;
     public String GetName(){
         return this.Name;}
@@ -24,7 +24,6 @@ public abstract class Animal {
     {
         this.Name = name;
         this.Gender = gender;
-        ///
     }
 
     public Boolean Reserve(String reservedby)
@@ -36,13 +35,13 @@ public abstract class Animal {
         return false;
     }
 
-    public String ToString()
+    public String toString()
     {
         String Reserved = "not reserved";
         if(this.ReservedBy != null)
         {
             Reserved = "reserved by " + ReservedBy.GetName();
         }
-        return Name + "," + Gender + "," + Reserved;
+        return Name + ", " + Gender + ", " + Reserved ;
     }
 }
