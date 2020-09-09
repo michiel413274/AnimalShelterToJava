@@ -40,10 +40,20 @@ class AnimalTest {
 
     @Test
     void reserve() {
-
+        boolean animalReserved = animal.Reserve("Bob");
+        assertEquals(true, animalReserved);
+    }
+    @Test
+    void AlreadyReserved()
+    {
+        boolean animalReserved = animal.Reserve("Bob");
+        boolean animalReserved1 = animal.Reserve("Bob");
+        assertEquals(false, animalReserved1);
     }
 
     @Test
     void ToString() {
+        String tostring = "Dog, Ugly Duckling, Male, not reserved, last walk: 09/09/2020, The price is: 0.0";
+        assertEquals(tostring, animal.toString());
     }
 }

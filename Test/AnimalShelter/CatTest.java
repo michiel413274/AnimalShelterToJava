@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class CatTest {
-    private Animal animal;
+    private Cat animal;
 
     @BeforeEach
     void tearDown() {
@@ -20,4 +20,18 @@ class CatTest {
         assertEquals(150, animal.GetPrice());
     }
 
+    @Test
+    void TestPriceWithALotOfBadHabits()
+    {
+        Animal animal1 = new Cat("Bob", Gender.Male, "Scratching and biting and grumpy");
+        animal1.SetPrice();
+        assertEquals(35, animal1.GetPrice());
+    }
+
+    @Test
+    void TestToString()
+    {
+        String tostring = "Cat, Bob, Male, not reserved, bad habits: scratching The price is: 150.0";
+        assertEquals(tostring, animal.toString());
+    }
 }

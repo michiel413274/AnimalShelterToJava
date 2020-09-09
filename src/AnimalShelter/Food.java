@@ -22,11 +22,11 @@ public class Food implements ISellable{
 
     @Override
     public Double GetPrice() {
-        return null;
+        return Price;
     }
 
     public String toString()
     {
-        return "The name is: " + Name + "The price is: " + Price;
+        return "The product name is: " + Name + " The price is: " + Price;
     }
 }

@@ -51,7 +51,7 @@ public class Dog extends Animal{
         return Price;
     }
 
-    public int DogCount()
+    private int DogCount()
     {
         Webshop _webshop = new Webshop();
         return _webshop.CountTheDogs();

@@ -3,16 +3,14 @@ package AnimalShelter;
 public class Cat extends Animal{
     private String BadHabits;
     private Double Price;
-    public String GetBadhabits()
-    {
-        return this.BadHabits;
-    }
+
     public Cat(String name, Gender gender, String badhabits)
     {
         super(name, gender);
         BadHabits = badhabits;
         SetPrice();
     }
+
     @Override
     public String toString()
     {
